@@ -2,11 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.thengo.facebookmini" >
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+        <!-- Facebook SDK requires ApplicationId to be set for this app,
+        so set it to one setup on developer.facebook.com -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id"/>
+
+
         <activity
             android:name="com.thengo.facebookmini.LogInActivity"
             android:label="@string/app_name" >
@@ -16,6 +26,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Facebook SDK requires com.facebook.LoginActivity to be present
+        so set it -->
+        <activity
+            android:name="com.facebook.LoginActivity"
+            android:label="@string/app_name" />
+
     </application>
 
 </manifest>
